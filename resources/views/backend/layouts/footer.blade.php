@@ -1,9 +1,12 @@
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+{{--<script src="https://code.jquery.com/jquery-3.6.0.min.js"--}}
+{{--    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="--}}
+{{--    crossorigin="anonymous"></script>--}}
+{{--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>--}}
+{{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>--}}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
 
 
@@ -48,27 +51,11 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/3.3.2/js/bootstrap-switch.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<!-- Load FilePond library -->
-<script src="https://unpkg.com/filepond/dist/filepond.js"></script>
-<script>
-    FilePond.parse(document.body);
-</script>
+<script src="{{asset("/vendor/laravel-filemanager/js/stand-alone-button.js")}}"></script>
+
 
 <script>
-    const inputElement = document.querySelector('input[id="thumbnail"]');
-
-    // Create a FilePond instance
-    const pond = FilePond.create(inputElement);
-
-    FilePond.setOptions({
-        server: {
-            url: '{{url('/upload')}}',
-            headers:{
-                'X-CSRF-TOKEN': '{{csrf_token()}}'
-            }
-        }
-    });
-
+    $('#lfm').filemanager('image');
 </script>
 <script>
     $('#is_parent').change(function (e) {
@@ -87,9 +74,16 @@
     })
 
 </script>
+
 <script>
     $(document).ready(function() {
         $('#description').summernote();
+    });
+
+</script>
+<script>
+    $(document).ready(function() {
+        $('#summary').summernote();
     });
 
 </script>

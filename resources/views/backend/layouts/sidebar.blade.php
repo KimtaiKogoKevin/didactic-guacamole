@@ -83,11 +83,11 @@
                 </li>
                 <li>
                     <a href="javascript: void(0);" class=" waves-effect"> <i class="uil-book-alt"></i> <span>Product Management</span> </a>
-{{--                    <ul class="sub-menu" aria-expanded="false">--}}
-{{--                        <li><a href="contacts-grid.html">User Grid</a></li>--}}
-{{--                        <li><a href="contacts-list.html">User List</a></li>--}}
-{{--                        <li><a href="contacts-profile.html">Profile</a></li>--}}
-{{--                    </ul>--}}
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route("products.index")}}">All Products</a></li>
+                        <li><a href="{{route("products.create")}}">Add Products</a></li>
+
+                    </ul>
                 </li>
                 <li class="menu-title">Pages</li>
                 <li>

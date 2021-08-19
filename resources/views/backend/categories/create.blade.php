@@ -67,13 +67,15 @@
                                                value="{{old('title')}}" id="example-text-input">
                                     </div>
                                 </div>
-                                <div class="mb-3 row ">
-                                    <label for="photo" class="col-lg-2 col-sm-2 col-md-2 col-form-label"><h2>Photo</h2></label>
-                                    <input id="thumbnail" class="" type="file" name="photo" value="{{old("photo")}}">
-                                    <div id="holder" style="margin-top:15px;max-height:300px;">
-
+                                    <div class="mb-3 row">
+                                          <span class="input-group-btn">
+                                              <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                               <i class="fa fa-picture-o"></i> Choose
+                                              </a>
+                                          </span>
+                                        <input id="thumbnail" class="thumbnail" type="text" name="photo" value="{{old('photo')}}">
                                     </div>
-                                </div>
+                                    {{--                                        <img id="holder" src="{{old('photo')}}" style="margin-top:15px;max-height:100px;">--}}
                                 <div class="mb-3 row">
                                     <label for="description" class="col-md-2 col-form-label"><h2>Summary </h2></label>
                                     <div class="col-md-12 col-lg-12 col-sm-12">

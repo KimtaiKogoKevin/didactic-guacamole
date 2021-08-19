@@ -74,35 +74,40 @@
 {{--                                                   value="{{old('slug')}}" id="example-text-input">--}}
 {{--                                        </div>--}}
                                 </div>
-                                    <div class="mb-3 row ">
-                                        <label for="photo" class="col-lg-2 col-sm-2 col-md-2 col-form-label"><h2>Photo</h2></label>
-                                        <input id="thumbnail" class="" type="file" name="photo" value="{{old("photo")}}">
-                                        <div id="holder" style="margin-top:15px;max-height:300px;">
-                                        </div>
-                                    </div>
-{{--                                <div class="mb-3 row">--}}
-{{--                                    <label for="description" class="col-md-2 col-form-label">Description of--}}
-{{--                                        banner</label>--}}
-{{--                                    <div class="col-md-12 col-lg-12 col-sm-12">--}}
-{{--                                        <textarea id="description" class="form-control" name="description" type="text"--}}
-{{--                                                  placeholder="Write a description of the banner"--}}
-{{--                                                  value="{{old('description')}}" id="example-search-input"> </textarea>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="mb-3 row">--}}
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">Photo</label>
 
-{{--                                    <label class="col-md-2 col-form-label">Banner type</label>--}}
-{{--                                    <div class="col-md-10">--}}
-{{--                                        <select name="conditions" class="form-select show-tick">--}}
-{{--                                            <option value="banner" {{old('conditions')=='banner' ? 'selected': ''}}>--}}
-{{--                                                Banner--}}
-{{--                                            </option>--}}
-{{--                                            <option value="promo"{{old('conditions')=='promo' ? 'selected': ''}}>--}}
-{{--                                                Promotional Banner--}}
-{{--                                            </option>--}}
-{{--                                        </select>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
+                                        <span class="input-group-btn">
+                                              <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
+                                               <i class="fa fa-picture-o"></i> Choose
+                                              </a>
+                                          </span>
+                                        <input id="thumbnail" class="thumbnail" type="text" name="photo" value="{{old('photo')}}">
+                                    </div>
+                                    {{--                                        <img id="holder" src="{{old('photo')}}" style="margin-top:15px;max-height:100px;">--}}
+                                <div class="mb-3 row">
+                                    <label for="description" class="col-md-2 col-form-label">Description of
+                                        banner</label>
+                                    <div class="col-md-12 col-lg-12 col-sm-12">
+                                        <textarea id="description" class="form-control" name="description" type="text"
+                                                  placeholder="Write a description of the banner"
+                                                  value="{{old('description')}}" id="example-search-input"> </textarea>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+
+                                    <label class="col-md-2 col-form-label">Banner type</label>
+                                    <div class="col-md-10">
+                                        <select name="conditions" class="form-select show-tick">
+                                            <option value="banner" {{old('conditions')=='banner' ? 'selected': ''}}>
+                                                Banner
+                                            </option>
+                                            <option value="promo"{{old('conditions')=='promo' ? 'selected': ''}}>
+                                                Promotional Banner
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="mb-3 row">
 
                                     <label class="col-md-2 col-form-label">Status</label>

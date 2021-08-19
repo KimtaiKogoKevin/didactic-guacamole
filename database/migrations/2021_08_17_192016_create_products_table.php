@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
 
             $table->float('discount')->default(0);
             $table->string('size');
-            $table->enum('conditions',['new','popular','winter'])->default('new');
+            $table->enum('conditions',['new','popular','most_searched'])->default('new');
             $table->unsignedBigInteger('vendor_id')->nullable();
             $table->enum('status',['active','inactive'])->default('active');
 

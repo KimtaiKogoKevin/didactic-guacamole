@@ -4,18 +4,18 @@ namespace Database\Factories;
 
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Products;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductsFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Products::class;
+    protected $model = Product::class;
 
     /**
      * Define the model's default state.
@@ -38,9 +38,9 @@ class ProductsFactory extends Factory
             'photo'=>$this->faker->imageUrl('400','200'),
             'price'=>$this->faker->numberBetween(100,20000),
             'offer_price'=>$this->faker->numberBetween(100,10000),
-            'discount'=>$this->faker->numberBetween(100,2000),
-            'size'=>$this->faker->randomElement(['S','M','L']),
-            'conditions'=>$this->faker->randomElement(['New','Popular','winter']),
+            'discount'=>$this->faker->numberBetween(0,100),
+            'size'=>$this->faker->randomElement(['S','M','L','XL']),
+            'conditions'=>$this->faker->randomElement(['New','Popular','most_searched']),
             'Status'=>$this->faker->randomElement(['active','inactive']),
 
 

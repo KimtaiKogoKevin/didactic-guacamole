@@ -19,8 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//upload temp photo
-Route::post('upload',[UploadController::class,'store']);
 
 Auth::routes(['register'=> true]);
 
@@ -41,11 +39,21 @@ Route::group(['prefix'=>'admin','middleware' => 'auth'],function(){
     Route::resource('categories',\App\Http\Controllers\CategoryController::class);
     Route::post('categories_status',[\App\Http\Controllers\CategoryController::class,'categoryStatus'])->name('categories.status');
 
+    Route::post('category/{id}/child',[\App\Http\Controllers\CategoryController::class,'getChildByParentID']);
+
     //Brand Section
     Route::resource('brands',\App\Http\Controllers\BrandController::class);
     Route::post('brand_status',[\App\Http\Controllers\BrandController::class,'brandStatus'])->name('brand.status');
 
+    //Product Section
+    Route::resource('products',\App\Http\Controllers\ProductsController::class);
+    Route::post('product_status',[\App\Http\Controllers\ProductsController::class,'productsStatus'])->name('product.status');
 
+
+    //laravel file manager
+    Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+        \UniSharp\LaravelFilemanager\Lfm::routes();
+    });
 
 
 

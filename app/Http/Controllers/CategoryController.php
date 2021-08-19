@@ -63,7 +63,7 @@ class CategoryController extends Controller
             'summary'=>'string|required',
             'is_parent'=>'sometimes|in:1',
             'parent_id' => 'nullable',
-            'status'=>'nullable|in:active,inactive'
+            'status'=>'required|in:active,inactive'
 
         ]);
         $data= $request->all();
@@ -136,7 +136,7 @@ class CategoryController extends Controller
                 'summary'=>'string|required',
                 'is_parent'=>'sometimes|in:1',
                 'parent_id' => 'nullable',
-                'status'=>'nullable|in:active,inactive'
+                'status'=>'required|in:active,inactive'
             ]);
             $data= $request->all();
 
@@ -159,6 +159,27 @@ class CategoryController extends Controller
         else{
             return back()->with('error', 'Data not found');
         }
+    }
+
+    public function getChildByParentID(Request $request ,$id){
+        $id=$request->id;
+       $category = Category::find($id);
+          // dd($category);
+      if ($category){
+         $child_id = Category::getChildByParentID($id);
+         // if(!isset($category->children)){
+//              return response()->json(['status'=>false,'data'=>null,'msg'=>'']);
+         // }
+          if(count($child_id)<=0 ){
+              return response()->json(['status'=>false,'data'=>null,'msg'=>'']);
+
+          }
+          return response()->json(['status'=>true,'data'=>$child_id,'msg'=>'']);
+
+      }
+      else{
+          return response()->json(['status'=>false,'data'=>null,'msg'=>'Category Not Found']);
+      }
     }
 
     /**
